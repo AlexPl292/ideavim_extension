@@ -2,7 +2,7 @@ package io.github.hadixlin.iss
 
 import com.maddyhome.idea.vim.VimPlugin
 import com.maddyhome.idea.vim.api.setToggleOption
-import com.maddyhome.idea.vim.ex.exExceptionMessage
+import com.maddyhome.idea.vim.ex.ExException
 import com.maddyhome.idea.vim.extension.VimExtension
 import com.maddyhome.idea.vim.options.OptionAccessScope
 import com.maddyhome.idea.vim.options.ToggleOption
@@ -25,7 +25,7 @@ class KeepEnglishInNormalAndRestoreInInsertExtension : VimExtension {
         val optionGroup = VimPlugin.getOptionGroup()
         val option =
             (optionGroup.getOption(KeepEnglishInNormalExtension.NAME)
-                ?: throw exExceptionMessage("option not found")) as ToggleOption
+                ?: throw ExException("Option '${KeepEnglishInNormalExtension.NAME}' not found")) as ToggleOption
         optionGroup.setToggleOption(option, OptionAccessScope.GLOBAL(null))
     }
 
